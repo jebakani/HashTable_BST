@@ -11,6 +11,7 @@ namespace BinarySearchTree
             binarySearch.AddNode(56);
             binarySearch.AddNode(30);
             binarySearch.AddNode(70);
+            binarySearch.AddNode(68);
             binarySearch.display(binarySearch.root);
         }
     }
