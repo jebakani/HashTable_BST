@@ -23,7 +23,7 @@ namespace BinarySearchTree
     class BinarySearchTree<T> where T:IComparable
     {
         public TreeNode<T> root;
-
+        int count = 0;
         //create the add node method
         public void AddNode(T value)
         {
@@ -73,6 +73,20 @@ namespace BinarySearchTree
                 display(parent.Left);
                 Console.WriteLine("The node :{0}", parent.value);
                 display(parent.Right);
+            }
+        }
+
+        public int SizeOf(TreeNode<T> parent)
+        {
+            //if the root is null then tree is empty
+            if(parent == null )
+            {
+                return 0;
+            }
+            //else find size of left sub tree and size of right sub tree then add together with one root node
+            else
+            {
+                return (SizeOf(parent.Left) + 1 + SizeOf(parent.Right));
             }
         }
     }
