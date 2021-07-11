@@ -20,7 +20,7 @@ namespace BinarySearchTree
         }
     }
     //create the binary search tree class that extends IComparable for comparision
-    class BinarySearchTree<T> where T:IComparable
+    class BinarySearchTree<T> where T : IComparable
     {
         public TreeNode<T> root;
         int count = 0;
@@ -29,7 +29,7 @@ namespace BinarySearchTree
         {
             TreeNode<T> newNode = new TreeNode<T>(value);
             //if the new node is the first node then point root tothe current node
-            if(root==null)
+            if (root == null)
             {
                 root = newNode;
             }
@@ -39,14 +39,14 @@ namespace BinarySearchTree
                 TreeNode<T> parent = root;
                 TreeNode<T> current = root;
                 //continue the below process till the target position  is achieved
-                while(true)
+                while (true)
                 {
                     parent = current;
                     //if the current node value is greater than new node then iterate to left till null
-                    if(current.value.CompareTo(value)>=0)
+                    if (current.value.CompareTo(value) >= 0)
                     {
                         current = current.Left;
-                        if(current==null)
+                        if (current == null)
                         {
                             parent.Left = newNode;
                             break;
@@ -62,10 +62,10 @@ namespace BinarySearchTree
                             break;
                         }
                     }
-                }
+                }                                   
             }
         }
-
+                                                                                                              
         public void display(TreeNode<T> parent)
         {
             if (parent != null)
@@ -79,7 +79,7 @@ namespace BinarySearchTree
         public int SizeOf(TreeNode<T> parent)
         {
             //if the root is null then tree is empty
-            if(parent == null )
+            if (parent == null)
             {
                 return 0;
             }
@@ -89,5 +89,38 @@ namespace BinarySearchTree
                 return (SizeOf(parent.Left) + 1 + SizeOf(parent.Right));
             }
         }
+
+        public int SearchTree(T value)
+        {
+            if (root == null)
+            {
+                return 0;
+            }
+            else
+            {
+                TreeNode<T> current = root;
+                while (true)
+                {
+                    if(current==null)
+                    {
+                        return 0;
+                    }
+                    if (current.value.CompareTo(value) == 0)
+                    {
+                        return 1;
+                    }
+                    else if (current.value.CompareTo(value) > 0)
+                    {
+                        current = current.Left;
+                    }
+                    else
+                    {
+                        current = current.Right;
+                    }
+                }
+            }
+        }
     }
 }
+    
+

@@ -23,6 +23,16 @@ namespace BinarySearchTree
             binarySearch.AddNode(16);
             binarySearch.display(binarySearch.root);
             Console.WriteLine("the number of node in the tree is :{0}",binarySearch.SizeOf(binarySearch.root));
+            int search = binarySearch.SearchTree(1);
+            if (search ==1)
+            {
+                Console.WriteLine("node is present");
+            }
+            else
+            {
+                Console.WriteLine("node is not present");
+            }
+
         }
     }
 }
